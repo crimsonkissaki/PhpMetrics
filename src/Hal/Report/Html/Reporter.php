@@ -55,21 +55,21 @@ class Reporter implements ReporterInterface
         }
 
         // render dynamic pages
-        $this->renderPage(__DIR__ . '/template/index.php', $logDir . '/index.html', $consolidated, $history);
-        $this->renderPage(__DIR__ . '/template/loc.php', $logDir . '/loc.html', $consolidated, $history);
-        $this->renderPage(__DIR__ . '/template/relations.php', $logDir . '/relations.html', $consolidated, $history);
-        $this->renderPage(__DIR__ . '/template/coupling.php', $logDir . '/coupling.html', $consolidated, $history);
-        $this->renderPage(__DIR__ . '/template/all.php', $logDir . '/all.html', $consolidated, $history);
-        $this->renderPage(__DIR__ . '/template/oop.php', $logDir . '/oop.html', $consolidated, $history);
-        $this->renderPage(__DIR__ . '/template/complexity.php', $logDir . '/complexity.html', $consolidated, $history);
-        $this->renderPage(__DIR__ . '/template/panel.php', $logDir . '/panel.html', $consolidated, $history);
-        $this->renderPage(__DIR__ . '/template/violations.php', $logDir . '/violations.html', $consolidated, $history);
-        $this->renderPage(__DIR__ . '/template/packages.php', $logDir . '/packages.html', $consolidated, $history);
-        $this->renderPage(__DIR__ . '/template/package_relations.php', $logDir . '/package_relations.html', $consolidated, $history);
+        $this->renderPage(PROJECT_DIR . '/templates/html_report/index.php', $logDir . '/index.html', $consolidated, $history);
+        $this->renderPage(PROJECT_DIR . '/templates/html_report/loc.php', $logDir . '/loc.html', $consolidated, $history);
+        $this->renderPage(PROJECT_DIR . '/templates/html_report/relations.php', $logDir . '/relations.html', $consolidated, $history);
+        $this->renderPage(PROJECT_DIR . '/templates/html_report/coupling.php', $logDir . '/coupling.html', $consolidated, $history);
+        $this->renderPage(PROJECT_DIR . '/templates/html_report/all.php', $logDir . '/all.html', $consolidated, $history);
+        $this->renderPage(PROJECT_DIR . '/templates/html_report/oop.php', $logDir . '/oop.html', $consolidated, $history);
+        $this->renderPage(PROJECT_DIR . '/templates/html_report/complexity.php', $logDir . '/complexity.html', $consolidated, $history);
+        $this->renderPage(PROJECT_DIR . '/templates/html_report/panel.php', $logDir . '/panel.html', $consolidated, $history);
+        $this->renderPage(PROJECT_DIR . '/templates/html_report/violations.php', $logDir . '/violations.html', $consolidated, $history);
+        $this->renderPage(PROJECT_DIR . '/templates/html_report/packages.php', $logDir . '/packages.html', $consolidated, $history);
+        $this->renderPage(PROJECT_DIR . '/templates/html_report/package_relations.php', $logDir . '/package_relations.html', $consolidated, $history);
         if ($this->config->has('git')) {
-            $this->renderPage(__DIR__ . '/template/git.php', $logDir . '/git.html', $consolidated, $history);
+            $this->renderPage(PROJECT_DIR . '/templates/html_report/git.php', $logDir . '/git.html', $consolidated, $history);
         }
-        $this->renderPage(__DIR__ . '/template/junit.php', $logDir . '/junit.html', $consolidated, $history);
+        $this->renderPage(PROJECT_DIR . '/templates/html_report/junit.php', $logDir . '/junit.html', $consolidated, $history);
 
         $today = (object)['avg' => $consolidated->getAvg(), 'sum' => $consolidated->getSum()];
         $encodedToday = json_encode($today, JSON_PRETTY_PRINT);
